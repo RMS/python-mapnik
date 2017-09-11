@@ -70,6 +70,7 @@ void export_featureset();
 void export_fontset();
 void export_datasource();
 void export_datasource_cache();
+void export_dot_symbolizer();
 void export_symbolizer();
 void export_markers_symbolizer();
 void export_point_symbolizer();
@@ -748,6 +749,7 @@ BOOST_PYTHON_MODULE(_mapnik)
     export_datasource_cache();
     export_symbolizer();
     export_markers_symbolizer();
+    export_dot_symbolizer();
     export_point_symbolizer();
     export_line_symbolizer();
     export_line_pattern_symbolizer();

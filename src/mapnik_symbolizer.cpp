@@ -51,6 +51,7 @@
 #include <sstream>
 
 using mapnik::symbolizer;
+using mapnik::dot_symbolizer;
 using mapnik::point_symbolizer;
 using mapnik::line_symbolizer;
 using mapnik::line_pattern_symbolizer;
@@ -291,6 +292,19 @@ void export_raster_symbolizer()
         ;
 }
 
+void export_dot_symbolizer()
+{
+    using namespace boost::python;
+
+    class_<dot_symbolizer, bases<symbolizer_base> >("DotSymbolizer",
+                           init<>("Default Dot Symbolizer - 2x black pixel with 0.5 transparency"))
+            //.add_property("width",  mapnik::symbolizer_base::properties::, "Width of the point")
+            //.add_property("height", mapnik: , "Width of the point")
+            .def("__hash__", hash_impl_2<dot_symbolizer>)
+            ;
+}
+
+
 void export_point_symbolizer()
 {
     using namespace boost::python;
@@ -457,5 +471,4 @@ void export_group_symbolizer()
                                                       init<>("Default GroupSymbolizer"))
         .def("__hash__",hash_impl_2<group_symbolizer>)
         ;
-
 }
